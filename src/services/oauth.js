@@ -11,7 +11,7 @@ export const requestNaverLogin = async () => {
     const API_BASE = process.env.REACT_APP_API_BASE_URL
     try {
         // 서버에 oauthState 전달
-        const response = await fetch(API_BASE + "/api/setOauthState", {
+        const response = await fetch(API_BASE,"/api/setOauthState", {
             method: "POST",
             credentials: "include",
             headers: {
