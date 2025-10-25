@@ -65,7 +65,6 @@ const AppRoutes = () => {
         <Route path="/about" element={<AboutPage />} />
 
 
-        {/* 어드민 라우트 */}
         <Route path="/admin/*" element={<AdminRoutes />} />
       </Routes>
 
