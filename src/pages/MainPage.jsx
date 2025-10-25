@@ -18,8 +18,8 @@ const dummyCourses = [
 ];
 
 function MainPage() {
-  const [profiles, setProfiles] = useState(dummyProfiles);
-  const [courses, setCourses] = useState(dummyCourses);
+  const [profiles] = useState(dummyProfiles);
+  const [courses] = useState(dummyCourses);
   const [index, setIndex] = useState(0); // 현재 캐러셀 시작 인덱스
 
   const visibleCourses = courses.slice(index, index + 4);

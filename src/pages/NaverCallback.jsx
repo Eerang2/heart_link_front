@@ -21,10 +21,12 @@ const NaverCallback = () => {
             return;
         }
 
+        const API_BASE = process.env.REACT_APP_API_BASE_URL
+
         const handleNaverCallback = async () => {
             try {
                 const response = await fetch(
-                    `http://localhost:8080/naver/callback?code=${code}&state=${state}`,
+                    `${API_BASE}/naver/callback?code=${code}&state=${state}`,
                     {
                         method: "GET",
                         credentials: "include", // 세션 쿠키 포함
@@ -39,7 +41,7 @@ const NaverCallback = () => {
 
                 if (data.status === "LOGIN") {
                     const res = await axios.post(
-                        `http://localhost:8080/login/${data.id}`,
+                        `${API_BASE}/login/${data.id}`,
                         null, // POST body 없음
                         { withCredentials: true }
                     );

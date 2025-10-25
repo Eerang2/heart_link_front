@@ -217,17 +217,6 @@ const ProfileForm = () => {
       login(response.data.accessToken);
       navigate("/main");
     } catch (err) {
-      const ax = err; // AxiosError
-      const summary = [
-        `message: ${ax.message}`,
-        `url: ${ax.config?.url}`,
-        `status: ${ax.response?.status}`,
-        `data: ${typeof ax.response?.data === 'string' ? ax.response.data : JSON.stringify(ax.response?.data)}`
-      ].join('\n');
-      console.log(summary)
-
-      // 개발 중엔 콘솔에 더 자세히
-      // console.error('AXIOS ERROR:', ax.toJSON?.() ?? ax);
       alert('오류 발생: ' + (err.response?.data || err.message));
     }
   };

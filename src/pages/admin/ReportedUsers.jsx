@@ -29,7 +29,7 @@ const MemberReportModal = ({ memberId, name, onClose }) => {
         }
     };
 
-    useEffect(() => { if (memberId) loadReports(); /* eslint-disable-next-line */ }, [memberId]);
+    useEffect(() => { if (memberId) loadReports();}, [memberId]);
 
     const accept = async (r) => {
         if (!window.confirm(`신고 #${r.id} 수락(처리)할까요?`)) return;
@@ -151,7 +151,6 @@ const ReportManagement = () => {
 
     const cell = (v) => (v ?? "-");
     // 서버가 reportCount 내려주면 사용, 없으면 0 표시
-    const reportCountOf = (u) => (u.reportCount ?? u.report_count ?? 0);
 
     return (
         <div className="admin-section">

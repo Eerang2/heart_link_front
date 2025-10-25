@@ -130,7 +130,6 @@ const MatchingRandom = () => {
         };
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
-        // profiles/currentProfileIndex 가 바뀌면 최신 핸들러 유지
     }, [profiles, currentProfileIndex]);
 
     if (!currentProfile) return <div>🔄 프로필 로딩 중...</div>;
