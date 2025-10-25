@@ -1,0 +1,157 @@
+:root{
+
+    --brand: #ff4d8d;          /* 메인 핑크 */
+    --brand-hover: #e63f7d;
+    --text: #1f2937;           /* 본문 텍스트 */
+    --text-muted: #6b7280;     /* 서브 텍스트 */
+    --surface: #ffffff;        /* 모달 배경 */
+    --border: #e5e7eb;
+    --ring: rgba(255,77,141,.25);
+    --overlay: rgba(17, 24, 39, .55); /* 배경 딤 */
+
+}
+/* ===== Theme (ON:DA 톤) ===== */
+/* ===== Overlay & Container ===== */
+.modal-overlay{
+    position: fixed;
+    inset: 0;
+    background: var(--overlay);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 60;
+}
+
+.modal-container{
+    width: min(720px, 92vw);
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.22);
+    padding: 16px 18px 20px;
+}
+
+/* ===== Header ===== */
+.modal-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+.modal-header h3{
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: .2px;
+}
+.modal-close{
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+.modal-close:hover{ color: var(--text); }
+
+/* ===== Inputs / Textarea ===== */
+.feedback-form.input,
+.feedback-form.textarea{
+    width: 96%;
+    margin: 10px 0;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #fff;
+    color: var(--text);
+    outline: none;
+    font-size: 14px;
+    transition: box-shadow .15s ease, border-color .15s ease;
+}
+.feedback-form.textarea{ resize: vertical; min-height: 140px; }
+
+.feedback-form.input::placeholder,
+.feedback-form.textarea::placeholder{
+    color: var(--text-muted);
+}
+
+.feedback-form.input:focus,
+.feedback-form.textarea:focus{
+    border-color: var(--brand);
+    box-shadow: 0 0 0 4px var(--ring);
+}
+
+/* ===== Buttons row ===== */
+.button-wrapper{
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;  /* ▶ 오른쪽 정렬 */
+    gap: 10px;
+}
+
+/* 공통 버튼 베이스 */
+.feedback-form.button{
+    appearance: none;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background .15s ease, color .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+/* 보조 버튼(임시 저장) */
+.btn-secondary{
+    background: #fff;
+    color: var(--text);
+}
+.btn-secondary:hover{
+    border-color: #d1d5db;
+    box-shadow: 0 0 0 4px rgba(0,0,0,.04);
+}
+
+/* 주 버튼(등록) */
+.btn-primary{
+    background: var(--brand);
+    border-color: var(--brand);
+    color: #fff;
+}
+.btn-primary:hover{
+    background: var(--brand-hover);
+    border-color: var(--brand-hover);
+}
+
+/* 비활성화 */
+.feedback-form.button:disabled{
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px){
+    .modal-container{ padding: 14px 14px 18px; }
+    .modal-header h3{ font-size: 18px; }
+    .feedback-form.textarea{ min-height: 120px; }
+    .button-wrapper{ gap: 8px; }
+}
+.char-counter {
+    text-align: right;
+    font-size: 12px;
+    margin-top: 4px;
+    color: #666;
+}
+
+.error-text {
+    color: #e11d48; /* 빨강 */
+    font-weight: 600;
+    margin-left: 6px;
+}
+
+.error-border {
+    border-color: #e11d48 !important;
+    outline-color: #e11d48 !important;
+}
+

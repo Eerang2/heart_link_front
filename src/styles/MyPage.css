@@ -1,0 +1,523 @@
+:root {
+  --main-color: #fdc8f7;
+  --accent-color: #e91e63;
+  --text-color: #333;
+  --bg-color: #fff0f5;
+  --border-color: #f4d3e6;
+}
+
+/* Reset */
+body {
+  margin: 0;
+  font-family: 'Gowun Batang', serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* 🔸 마이페이지 전체 레이아웃 */
+.mypage-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 150px;
+  background-color: white;
+  padding: 2rem 1rem;
+  border-right: 1px solid var(--border-color);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+  color: var(--accent-color);
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar li:hover {
+  background-color: var(--main-color);
+  color: white;
+}
+
+.mypage-content {
+  flex: 1;
+  padding: 2.5rem;
+  background-color: var(--bg-color);
+}
+
+/* 🔸 공통 섹션 */
+.setting-section {
+  background-color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+}
+
+.setting-section h3 {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--main-color);
+  padding-bottom: 0.5rem;
+}
+
+/* 🔸 대표 이미지 미리보기 */
+.profile-section {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.profile-section h2 {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.preview-circle {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  overflow: hidden;
+  border: 4px solid var(--main-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.preview-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 🔸 아래 대표 + 서브 이미지 3개 */
+.image-upload-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.image-upload-item {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.image-upload-item:hover {
+  transform: scale(1.05);
+}
+
+.upload-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid var(--main-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.image-upload-item p {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* 🔸 반응형 대응 */
+@media (max-width: 768px) {
+  .mypage-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+  }
+
+  .mypage-content {
+    padding: 1.5rem;
+  }
+}
+
+.image-upload-item {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-label {
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.delete-btn {
+  margin-top: 5px;
+  background-color: #ff7777;
+  border: none;
+  color: white;
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.info-block p {
+  margin: 0.4rem 0;
+  font-size: 1rem;
+}
+
+.interest-block {
+  margin-top: 2rem;
+    text-align: center;
+}
+
+.interest-block h4 {
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.tag-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+/* 프로필 수정 관련 */
+.tag {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--main-color);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--accent-color);
+  background-color: white;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background-color: var(--main-color);
+  color: white;
+}
+
+.tag.selected {
+  background-color: var(--main-color);
+  color: white;
+}
+
+.tag-note {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.submit-btn {
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 200px;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.submit-btn:hover {
+  background-color: #d81b60;
+}
+
+/* ✅ 매칭 설정 스위치 전용 스타일 */
+.switch-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.switch {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: relative;
+  width: 45px;
+  height: 24px;
+  background-color: #ccc;
+  border-radius: 999px;
+  transition: background-color 0.3s ease;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.switch input:checked + .slider {
+  background-color: var(--accent-color);
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(21px);
+}
+
+.label-text {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+/* ==============================
+   Feedback 전용 버튼 (스코프 고정)
+   ============================== */
+/* 액션 영역 정렬 */
+.fb-scope .actions-cell{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:8px;
+}
+
+/* 두 버튼 공통 크기 */
+.fb-scope .fb-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  height:36px;          /* ✅ 동일 높이 */
+  min-width:96px;       /* ✅ 동일 너비 */
+  padding:0 12px;       /* 좌우 여백 */
+  box-sizing:border-box;
+  line-height:1;        /* 텍스트 정렬 안정화 */
+  border-radius:12px;   /* 기존 값 유지 가능 */
+}
+
+/* 아이콘/텍스트 줄바꿈 방지 */
+.fb-scope .fb-btn span{ white-space:nowrap; }
+
+/* 수정(Primary) */
+.fb-scope .fb-btn--edit {
+  border-color: #c7d2fe;
+  background: linear-gradient(#ffffff, #fbfdff);
+  color: #1d4ed8;
+}
+.fb-scope .fb-btn--edit:hover {
+  background: #f1f5ff;
+  border-color: #a5b4fc;
+}
+
+/* 삭제(Danger) */
+.fb-scope .fb-btn--danger {
+  border-color: #fecaca;
+  background: linear-gradient(#fff, #fff7f7);
+  color: #b91c1c;
+}
+.fb-scope .fb-btn--danger:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+}
+
+
+/* 제목: 한 줄 말줄임 */
+.title-cell {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 8px;
+}
+.fb-scope .title-cell,
+.fb-scope .feedback-message-cell {
+  user-select: none;
+}
+
+/* 테이블은 높이 자동 */
+.feedback-table { table-layout: fixed; border-collapse: collapse; }
+.feedback-table th, .feedback-table td { vertical-align: top; }
+
+/* 1줄 말줄임: 제목 */
+.cell-1line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 2줄 말줄임: 내용 (td가 아니라 내부 div에만 적용!) */
+.cell-2lines {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;   /* 2줄까지만 보이기 */
+  overflow: hidden;
+
+  line-height: 1.6;
+  /* max-height는 주지 마세요. 줄바꿈/폰트에 따라 오차 발생 → 잘림 유발 */
+  /* max-height: calc(1.6em * 2);  <-- 제거 */
+
+  /* 긴 연속문자 대응 */
+  white-space: normal;
+  word-break: keep-all;     /* 한글 단어 기준 */
+  overflow-wrap: anywhere;  /* 공백 없는 문자열 강제 줄바꿈 */
+}
+
+/* 선택: 셀 내부 구분선이 필요 없으면 제거 */
+.content-cell { border-bottom: none; }
+
+
+/* ===== Sidebar active 표시 보강 ===== */
+.sidebar ul li {
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: background 0.2s, color 0.2s;
+}
+.sidebar ul li.active,
+.sidebar ul li:hover {
+  background: rgba(253, 200, 247, 0.18); /* #fdc8f7 with alpha */
+  color: #d24ec1;
+}
+
+/* ===== Section 공통 ===== */
+.setting-section h3 {
+  margin: 4px 0 14px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* ===== 찜한 사람 (likes) ===== */
+.liked-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 1024px) {
+  .liked-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 720px) {
+  .liked-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.liked-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: transform 0.06s ease, box-shadow 0.12s ease;
+}
+.liked-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.liked-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid #fdc8f7;
+}
+
+.liked-avatar--placeholder {
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  background: radial-gradient(circle at 30% 20%, #ffe5fb, #ffd9f8);
+  color: #c44db7;
+}
+
+.liked-meta {
+  min-width: 0;
+  flex: 1;
+}
+.liked-nick {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.2;
+  color: #2b2b2b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.liked-sub {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #666;
+}
+
+.liked-view-btn {
+  margin-left: auto;
+  border: 1px solid #fdc8f7;
+  background: #fff;
+  color: #b73aa6;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  transition: background 0.15s, color 0.15s, transform 0.05s;
+}
+.liked-view-btn:hover {
+  background: #fdc8f7;
+  color: #5b1552;
+}
+.liked-view-btn:active {
+  transform: translateY(1px);
+}
+
+.liked-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+}
+.submit-btn.outline {
+  background: transparent;
+  color: #b73aa6;
+  border: 1px solid #fdc8f7;
+}
+.submit-btn.outline:hover {
+  background: #fdc8f7;
+  color: #5b1552;
+}
+
+/* 빈 상태 공통 */
+.empty-state {
+  padding: 24px;
+  text-align: center;
+  color: #777;
+  border: 1px dashed rgba(0,0,0,0.15);
+  border-radius: 12px;
+  background: #fff;
+}

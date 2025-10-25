@@ -1,0 +1,213 @@
+:root {
+  --accent: #fdc8f7;
+  --bg: #fffafc;
+  --card: #ffffff;
+  --text: #2c2c2c;
+  --muted: #777;
+  --border: rgba(0, 0, 0, 0.08);
+}
+
+/* === 전체 페이지 === */
+.community-page {
+  height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Noto Sans KR", sans-serif;
+
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+/* === 카테고리 탭 === */
+.community-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  max-width: 720px;
+  display: flex;
+  gap: 10px;
+  background: var(--bg);
+  padding: 12px 0 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab-btn {
+  border: 1px solid transparent;
+  background: transparent;
+  color: #555;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.tab-btn.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(253, 200, 247, 0.15);
+  box-shadow: 0 0 0 2px rgba(253, 200, 247, 0.15) inset;
+}
+
+/* === 피드 컨테이너 === */
+.feed {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  padding-top: 80px;
+  align-items: center;
+}
+
+/* === 카드 === */
+.feed-card {
+  border: 1px solid var(--card);
+  background: var(--card);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 100px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  cursor: pointer;
+  width: 90%;
+  max-width: 680px;
+
+  /* 스냅 효과 강화 */
+  min-height: 85vh;   /* 한 화면 거의 꽉 차도록 */
+  scroll-snap-align: start;
+  animation: fadeInUp 0.6s ease both;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+/* === 카드 헤더 === */
+.feed-card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+  background: #eee;
+}
+
+.avatar--hidden {
+  visibility: hidden;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+}
+
+.name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+}
+
+.time {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* === 본문 === */
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 4px;
+  color: #111;
+}
+
+.content {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #444;
+  flex-grow: 1;
+  white-space: pre-line;
+}
+
+/* === 이미지 미리보기 === */
+.thumb-wrap {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumb {
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;   /* cover → contain */
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: #f9f9f9;
+}
+
+.thumb:hover {
+  transform: scale(1.02);
+}
+
+/* === 푸터 === */
+.feed-card__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* === 등장 모션 === */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* 플로팅 글쓰기 버튼 */
+.floating-write-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #fdc8f7;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+.floating-write-btn:hover {
+  background-color: #f48ac1;
+}
+

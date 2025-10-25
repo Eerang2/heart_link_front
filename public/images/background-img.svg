@@ -1,0 +1,19 @@
+<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100">
+    <!-- 전체 배경에 두 가지 그라데이션 적용 -->
+    <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <!-- 상단 10%는 핫핑크 색상, 나머지 부분은 기존 색상과 투명도 조절 -->
+        <stop offset="0%" style="stop-color:#f1a7b7; stop-opacity:1"/> <!-- 핫핑크 -->
+        <stop offset="10%" style="stop-color:#f1a7b7; stop-opacity:1"/> <!-- 핫핑크 유지 -->
+        <stop offset="90%" style="stop-color:#fbd2db; stop-opacity:1"/> <!-- 기존 색상 유지 -->
+        <stop offset="100%" style="stop-color:#fbd2db; stop-opacity:0"/> <!-- 투명도 -->
+        </linearGradient>
+    </defs>
+    <!-- 전체 배경 색상 -->
+    <rect width="200" height="100" fill="url(#bgGradient)"/>
+
+    <!-- 물결 효과 (잔잔하게) -->
+    <path d="M0 70 Q20 60 40 70 T80 70 T120 70 T160 70 T200 70 L200 100 L0 100 Z" fill="#FFFFFF" opacity="0.6"/>
+    <path d="M0 75 Q25 65 50 75 T100 75 T150 75 T200 75 L200 100 L0 100 Z" fill="#FFFFFF" opacity="0.5"/>
+    <path d="M0 80 Q30 70 60 80 T120 80 T180 80 T200 80 L200 100 L0 100 Z" fill="#FFFFFF" opacity="0.4"/>
+</svg>

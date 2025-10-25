@@ -1,0 +1,24 @@
+.emoji-picker {
+  position: absolute;
+  bottom: 60px;
+  left: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 8px 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  z-index: 100;
+}
+
+.emoji-picker span {
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: transform 0.1s;
+}
+
+.emoji-picker span:hover {
+  transform: scale(1.2);
+}

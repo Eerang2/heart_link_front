@@ -1,0 +1,167 @@
+/* src/styles/MatchingRandom.css */
+
+.matching-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    min-height: 100vh;
+    background-color: #f9fafb;
+}
+
+.matching-card {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f1f1f1;
+    transition: transform 0.2s ease-in-out;
+}
+
+.matching-card:hover {
+    transform: scale(1.02);
+}
+
+.matching-card-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-image-container {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    padding: 4px 12px;
+    font-size: 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    border: none;
+}
+
+.image-nav-button:hover {
+    background-color: #e4e4e4;
+}
+
+.image-nav-button.left {
+    left: 12px;
+}
+
+.image-nav-button.right {
+    right: 12px;
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #1f2937;
+}
+
+.profile-location {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 12px;
+}
+
+.profile-hobbies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.hobby-tag {
+    background-color: #e0e7ff;
+    color: #4338ca;
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    border-radius: 999px;
+}
+
+.profile-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.primary-btn,
+.secondary-btn,
+.next-btn {
+    width: 100%;
+    padding: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    border: none;
+}
+
+.primary-btn {
+    background-color: #ec4899;
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: #db2777;
+}
+
+.secondary-btn {
+    background-color: white;
+    border: 1px solid #d1d5db;
+}
+
+.secondary-btn:hover {
+    background-color: #f3f4f6;
+}
+
+.next-btn {
+    margin-top: 24px;
+    background-color: #ec4899;
+    color: white;
+}
+
+.next-btn:hover {
+    background-color: #db2777;
+}
+
+/* ✅ 카드 전환 슬라이드 */
+.matching-card.slide-out-left {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.matching-card.slide-in-right {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.matching-card.active {
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}

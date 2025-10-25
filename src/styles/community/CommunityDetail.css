@@ -1,0 +1,287 @@
+/* === 모달 오버레이 === */
+.detail-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* === 모달 카드 === */
+.detail-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  width: 90%;
+  max-width: 640px;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  animation: fadeIn 0.2s ease;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* 닫기 버튼 */
+.detail-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* === 헤더 === */
+.detail-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.detail-header .avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fdc8f7;
+}
+
+.detail-header .meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-header .name {
+  font-weight: 600;
+  font-size: 15px;
+  color: #222;
+}
+
+.detail-header .time {
+  font-size: 12px;
+  color: #777;
+}
+
+/* === 본문 === */
+.detail-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 10px 0 8px;
+}
+
+.detail-content {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 16px;
+  white-space: pre-line
+}
+
+/* === 이미지 === */
+.detail-image-wrap {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.detail-image {
+  max-width: 100%;
+  max-height: 600px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #f9f9f9;
+  display: block;
+  margin: 0 auto;
+}
+
+/* === 푸터 (좋아요/댓글/조회수) === */
+.detail-footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
+  margin-bottom: 14px;
+}
+
+/* 좋아요 버튼 */
+.like-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+  margin-right: 12px;
+  transition: transform 0.1s ease;
+}
+
+.like-btn:hover {
+  transform: scale(1.05);
+}
+
+.like-btn.liked {
+  color: #fd4c8b; /* 핑크톤 */
+}
+
+/* === 댓글 영역 === */
+.detail-comments {
+  margin-top: 18px;
+  border-top: 1px solid #eee;
+  padding-top: 12px;
+}
+
+.detail-comments h4 {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.comment {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+/* ✅ 댓글 아바타 */
+.comment-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid #ddd;
+}
+
+.comment-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-text {
+  color: #555;
+}
+
+.comment-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.no-comments {
+  font-size: 13px;
+  color: #888;
+}
+
+/* === 댓글 입력창 === */
+.comment-input {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.comment-input input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.comment-input button {
+  padding: 8px 14px;
+  background: #fdc8f7;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #fff;
+  transition: background 0.2s ease;
+}
+
+.comment-input button:hover {
+  background: #f99edf;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.comment-author {
+  font-weight: 600;
+  color: #333;
+}
+
+.comment-time {
+  font-size: 12px;
+  color: #999;
+}
+
+.comment-delete-btn {
+  background: transparent;
+  border: none;
+  font-size: 12px;
+  color: #e74c3c;
+  cursor: pointer;
+}
+
+.comment-delete-btn:hover {
+  text-decoration: underline;
+}
+
+
+/* === 애니메이션 === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.detail-actions {
+  position: absolute;
+  top: 12px;
+  right: 48px;
+  gap: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+  margin-right: 10px;
+  width: 60px;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  color: white;
+}
+
+.edit-btn {
+  background: #fdc8f7;
+}
+.edit-btn:hover {
+  background: #f99edf;
+}
+
+.delete-btn {
+  background: #e74c3c;
+}
+.delete-btn:hover {
+  background: #c0392b;
+}
+

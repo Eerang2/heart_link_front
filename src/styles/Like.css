@@ -1,0 +1,83 @@
+/* ===== Likes (찜한 사람) - Board 스타일 (MyPage 전용 스코프) ===== */
+#mypage .likes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+#mypage .like-card {
+    display: grid;
+    grid-template-columns: 72px 1fr 120px;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f1f5f9;
+    transition: background 0.15s ease;
+}
+
+#mypage .like-card:last-child { border-bottom: none; }
+#mypage .like-card:hover { background: #f8fafc; }
+
+#mypage .like-card-thumb {
+    width: 72px; height: 72px;
+    display: grid; place-items: center;
+}
+
+#mypage .like-card-thumb img {
+    width: 56px; height: 56px;
+    border-radius: 9999px;
+    object-fit: cover;
+    display: block;
+    border: 1px solid #e5e7eb;
+    background: #f8fafc;
+}
+
+#mypage .like-card-info { min-width: 0; }
+
+#mypage .like-card-name {
+    font-weight: 600; font-size: 15px; line-height: 1.2;
+    color: #0f172a; display: flex; align-items: baseline; gap: 6px;
+}
+
+#mypage .like-card-name .muted { font-weight: 500; color: #64748b; font-size: 13px; }
+
+#mypage .like-card-sub {
+    margin-top: 2px; color: #64748b; font-size: 13px; line-height: 1.4;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+#mypage .like-card-actions { display: flex; justify-content: flex-end; gap: 8px; }
+
+#mypage .btn-primary {
+    height: 36px; padding: 0 14px; border-radius: 10px;
+    border: 1px solid #2563eb; background: #2563eb; color: #ffffff;
+    font-weight: 600; font-size: 14px; cursor: pointer;
+    transition: transform 0.02s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+#mypage .btn-primary:hover { background: #1d4ed8; box-shadow: 0 4px 14px rgba(37,99,235,.15); }
+#mypage .btn-primary:active { transform: translateY(1px); }
+
+@media (prefers-color-scheme: dark) {
+    #mypage .likes-list { background: #0b1220; border-color: #1f2937; }
+    #mypage .like-card { border-bottom-color: #1f2937; }
+    #mypage .like-card:hover { background: #0e1626; }
+    #mypage .like-card-name { color: #e5e7eb; }
+    #mypage .like-card-name .muted, #mypage .like-card-sub { color: #9ca3af; }
+    #mypage .like-card-thumb img { border-color: #1f2937; background: #111827; }
+    #mypage .btn-primary { border-color: #3b82f6; background: #3b82f6; }
+    #mypage .btn-primary:hover { background: #2563eb; }
+}
+
+@media (max-width: 640px) {
+    #mypage .like-card {
+        grid-template-columns: 56px 1fr;
+        gap: 10px; padding: 10px 12px;
+    }
+    #mypage .like-card-thumb { width: 56px; height: 56px; }
+    #mypage .like-card-thumb img { width: 48px; height: 48px; }
+    #mypage .like-card-actions { grid-column: 1 / -1; justify-content: flex-start; }
+}

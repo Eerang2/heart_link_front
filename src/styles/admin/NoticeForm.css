@@ -1,0 +1,78 @@
+/* NoticeForm.css */
+
+.admin-section {
+    padding: 2rem;
+    background-color: #fff;
+    min-height: 100vh;
+}
+
+.admin-section h2 {
+    color: #d9294f;
+    margin-bottom: 1.5rem;
+}
+
+.notice-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+}
+
+.notice-form label {
+    font-weight: bold;
+    color: #333;
+}
+
+.notice-form input{
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+.notice-form textarea {
+    min-height: 330px;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+}
+
+.notice-form button {
+    align-self: flex-start;
+    background-color: #d9294f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.notice-form button:hover {
+    background-color: #c31842;
+}
+.nf-counter {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #6b7280;
+    text-align: right;
+}
+
+.nf-error {
+    border-color: #e11d48 !important;
+    outline-color: #e11d48 !important;
+}
+
+.nf-error-text {
+    color: #e11d48;
+    font-weight: 600;
+    margin-left: 6px;
+}
+.nf-counter {
+    margin: 4px 0 8px;
+    font-size: 12px;
+    color: #6b7280;
+    text-align: right;
+}

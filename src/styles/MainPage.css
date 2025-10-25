@@ -1,0 +1,168 @@
+/* === 페이지 전체 === */
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 120px); /* 헤더+푸터 높이 감안 */
+}
+
+.main-container {
+  flex: 1;
+  text-align: center;
+  font-family: "Noto Sans KR", sans-serif;
+  background: #fffafc;
+}
+
+/* === Hero Section === */
+.hero {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #fdc8f7 0%, #ffdde1 100%);
+  color: #2c2c2c;
+}
+
+.hero .brand {
+  font-size: 50px;
+  font-weight: 900;
+  margin: 0;
+  background: linear-gradient(135deg, #fdc8f7 0%, #ffdde1 100%);
+  color: #e91e63;
+}
+
+.hero .tagline {
+  margin-top: 15px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+/* === TOP3 프로필 === */
+.top-profiles {
+  margin: 300px 0 100px 0;
+}
+
+
+.profile-rankings {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.profile-card {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.profile-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fdc8f7;
+  margin-bottom: 10px;
+}
+
+.profile-card span {
+  display: block;
+  margin-top: 5px;
+  font-weight: bold;
+  color: #e91e63;
+}
+
+.first {
+  transform: scale(1.2);
+}
+.second {
+  transform: translateY(20px);
+}
+.third {
+  transform: translateY(40px);
+}
+
+/* === 데이트 코스 추천 === */
+.date-courses {
+  margin: 500px 0 200px 0;
+}
+
+.course-carousel-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.course-carousel {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  width: 85%;
+  max-width: 1300px;
+}
+
+
+.course-card {
+  flex: 0 0 250px; /* 고정 크기 */
+  position: relative;
+  height: 180px;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+  transform: scale(1.05);
+}
+
+.course-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.course-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+}
+
+/* 좌우 버튼 */
+.carousel-btn {
+  background: #fdc8f7;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.carousel-btn:hover:not(:disabled) {
+  background: #e91e63;
+  color: white;
+}
+
+.carousel-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

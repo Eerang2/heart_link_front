@@ -1,0 +1,107 @@
+/* UserManagement.css */
+
+.admin-section {
+    padding: 2rem;
+    background-color: #fff;
+    min-height: 100vh;
+    min-width: 880px;
+
+}
+
+.admin-section h2 {
+    color: #d9294f;
+    margin-bottom: 1.5rem;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fffafc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #f3d4eb;
+    font-size: 0.95rem;
+}
+
+.admin-table th {
+    background-color: #fdd7ec;
+    color: #84264b;
+}
+
+.admin-table tr:hover {
+    background-color: #fff0f6;
+}/* ====== UserManagement 버튼 스코프 ====== */
+.admin-section .actions-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 공통 버튼 */
+.admin-section .um-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    height: 36px;            /* 동일 높이 */
+    min-width: 100px;        /* 동일 너비 */
+    padding: 0 12px;
+    box-sizing: border-box;
+
+    font-size: 14px;
+    line-height: 1;
+    white-space: nowrap;
+    border-radius: 12px;
+
+    border: 1px solid #e5e7eb;
+    background: #fff;
+    color: #374151;
+
+    cursor: pointer;
+    transition: background .15s ease, border-color .15s ease, box-shadow .15s ease, transform .05s ease;
+}
+
+.admin-section .um-btn:focus-visible {
+    outline: 2px solid transparent;
+    box-shadow: 0 0 0 3px rgba(59,130,246,.35); /* 포커스 링 */
+}
+
+.admin-section .um-btn:active {
+    transform: translateY(.5px);
+}
+
+/* 상세: 파랑 계열 아웃라인 */
+.admin-section .um-btn--detail {
+    border-color: #bfdbfe;
+    color: #1d4ed8;
+    background: linear-gradient(#ffffff, #f9fbff);
+}
+.admin-section .um-btn--detail:hover {
+    background: #eef5ff;
+    border-color: #93c5fd;
+}
+
+/* 차단 사유: 레드 계열 아웃라인 */
+.admin-section .um-btn--reason {
+    border-color: #fecaca;
+    color: #b91c1c;
+    background: linear-gradient(#ffffff, #fff7f7);
+}
+.admin-section .um-btn--reason:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+}
+
+/* 아이콘/텍스트 줄바꿈 방지 */
+.admin-section .um-btn span { white-space: nowrap; }
+
+/* 좁은 화면에서 폭 축소 */
+@media (max-width: 640px) {
+    .admin-section .um-btn { min-width: 84px; height: 34px; font-size: 13px; }
+}
