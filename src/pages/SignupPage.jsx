@@ -208,13 +208,26 @@ const ProfileForm = () => {
     formData.append('data', new Blob([JSON.stringify(dto)], { type: 'application/json' }));
     images.forEach((img) => img && formData.append('images', img));
 
+    const API_BASE = process.env.REACT_APP_API_BASE_URL
+
     try {
-      const res = await axios.post('http://localhost:8080/api/member/profile', formData, { withCredentials: true });
+      let res = await axios.post(`${API_BASE}/api/member/profile`, formData, { withCredentials: true });
       const memberId = res.data;
-      const response = await axios.post(`http://localhost:8080/login/${memberId}`, null, { withCredentials: true });
+      const response = await axios.post(`${API_BASE}/login/${memberId}`, null, { withCredentials: true });
       login(response.data.accessToken);
       navigate("/main");
     } catch (err) {
+      const ax = err; // AxiosError
+      const summary = [
+        `message: ${ax.message}`,
+        `url: ${ax.config?.url}`,
+        `status: ${ax.response?.status}`,
+        `data: ${typeof ax.response?.data === 'string' ? ax.response.data : JSON.stringify(ax.response?.data)}`
+      ].join('\n');
+      console.log(summary)
+
+      // 개발 중엔 콘솔에 더 자세히
+      // console.error('AXIOS ERROR:', ax.toJSON?.() ?? ax);
       alert('오류 발생: ' + (err.response?.data || err.message));
     }
   };
