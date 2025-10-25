@@ -60,11 +60,8 @@ const AppRoutes = () => {
         <Route path="/notices" element={<NoticeList />} />
         <Route path="/notices/:id" element={<NoticeDetail />} />
         <Route path="/feedback" element={<FeedbackForm />} />
-
         <Route path="/admin/login" element={<AdminLogin/>} />
         <Route path="/about" element={<AboutPage />} />
-
-
         <Route path="/admin/*" element={<AdminRoutes />} />
       </Routes>
 

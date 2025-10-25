@@ -3,14 +3,15 @@ export const requestNaverLogin = async () => {
     sessionStorage.setItem("oauth_state", state); // CSRF 방지용
 
     const clientId = "hauhzZ56Y2etqYQpnVZi";
-    const redirectUri = "http://localhost:3000/naver/callback"; // React 앱 주소로 수정
+    const redirectUri = " https://963d35bc.hearthunter-3fs.pages.dev/naver/callback"; // React 앱 주소로 수정
     const naverAuthUrl = `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=${clientId}&redirect_uri=${encodeURIComponent(
         redirectUri
     )}&state=${state}`;
 
+    const API_BASE = process.env.REACT_APP_API_BASE_URL
     try {
         // 서버에 oauthState 전달
-        const response = await fetch("http://localhost:8080/api/setOauthState", {
+        const response = await fetch(API_BASE + "/api/setOauthState", {
             method: "POST",
             credentials: "include",
             headers: {
