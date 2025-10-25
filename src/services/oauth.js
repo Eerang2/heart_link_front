@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const requestNaverLogin = async () => {
     const state = crypto.randomUUID();
     sessionStorage.setItem("oauth_state", state); // CSRF 방지용
@@ -10,17 +12,10 @@ export const requestNaverLogin = async () => {
 
     const API_BASE = process.env.REACT_APP_API_BASE_URL
     try {
+        const response = await axios.post(`${API_BASE}/api/setOauthState`, { oauthState: state }, { withCredentials: true });
         // 서버에 oauthState 전달
-        const response = await fetch(`${API_BASE}/api/setOauthState`, {
-            method: "POST",
-            credentials: "include",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ oauthState: state }),
-        });
 
-        if (response.ok) {
+        if (response.status === 200) {
             // 네이버 로그인 페이지로 이동
             window.location.href = naverAuthUrl;
         } else {
