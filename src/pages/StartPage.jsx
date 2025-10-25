@@ -53,7 +53,7 @@ const StartPage = () => {
                         <a href="#features" className="nav__link">특징</a>
                         <a href="#how" className="nav__link">매칭 방식</a>
                         <a href="#cta" className="nav__link nav__link--primary" onClick={(e) => { e.preventDefault(); setShowModal(true); }}>
-                            로그인/시작하기
+                            로그인/시작하기1
                         </a>
                     </nav>
                 </div>
