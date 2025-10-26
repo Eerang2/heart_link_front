@@ -1,70 +1,71 @@
-import { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useRef } from "react";
 import axios from "axios";
-import {useAuth} from "../context/AuthContext";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 const NaverCallback = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const { login } = useAuth();
+    const once = useRef(false);
+
+
 
     useEffect(() => {
-        const query = new URLSearchParams(location.search);
-        const code = query.get("code");
-        const state = query.get("state");
+        if (once.current) return;            // ✅ 개발모드 중복 실행 방지
+        once.current = true;
+
+        const params = new URLSearchParams(location.search);
+        const code = params.get("code");
+        const state = params.get("state");
         const savedState = sessionStorage.getItem("oauth_state");
 
-        // CSRF 방지를 위해 state 검증
+        // ✅ state 검증
         if (!code || !state || state !== savedState) {
             console.error("OAuth state mismatch or missing parameters.");
+            navigate("/"); // 실패 시 홈 등으로 이동
+            return;
+        }
+        // ✅ 사용 후 바로 제거 (재호출 방지)
+        sessionStorage.removeItem("oauth_state");
+
+        const API_BASE = (process.env.REACT_APP_API_BASE_URL || "").trim();
+        if (!API_BASE) {
+            console.error("REACT_APP_API_BASE_URL is missing");
+            navigate("/");
             return;
         }
 
-        const API_BASE = process.env.REACT_APP_API_BASE_URL
-
-        const handleNaverCallback = async () => {
+        (async () => {
             try {
-                const response = await fetch(
-                    `${API_BASE}/naver/callback?code=${code}&state=${state}`,
-                    {
-                        method: "GET",
-                        credentials: "include", // 세션 쿠키 포함
-                    }
+                // ✅ GET 쿼리 대신 POST JSON으로 전달 (권장)
+                const { data } = await axios.post(
+                    `${API_BASE}/api/naver/callback`,
+                    { code, state },
+                    { withCredentials: true }
                 );
-
-                if (!response.ok) {
-                    throw new Error(`서버 응답 오류: ${response.status}`);
-                }
-
-                const data = await response.json();
 
                 if (data.status === "LOGIN") {
                     const res = await axios.post(
                         `${API_BASE}/login/${data.id}`,
-                        null, // POST body 없음
+                        null,
                         { withCredentials: true }
                     );
-                    if (res.status === 200) {
-                        const accessToken = res.data.accessToken;
-                        login(accessToken); // 전역 상태 + localStorage 저장
-
-                        navigate("/main");
-                    } else {
-                        console.error("로그인 에러");
-                    }
+                    const accessToken = res.data?.accessToken;
+                    if (!accessToken) throw new Error("No access token");
+                    // TODO: login(accessToken); // 네가 쓰는 전역 로그인 함수
+                    navigate("/main");
                 } else if (data.status === "AGREEMENT" || data.status === "NEED_AGREEMENT") {
                     sessionStorage.setItem("tempSignupToken", data.token);
                     navigate("/member/termsAgree");
                 } else {
-                    console.error("예상치 못한 상태:", data);
+                    console.error("Unexpected status:", data);
+                    navigate("/");
                 }
-            } catch (error) {
-                console.error("네이버 인증 처리 중 에러:", error);
+            } catch (err) {
+                console.error("네이버 인증 처리 에러:", err);
+                navigate("/");
             }
-        };
-
-        handleNaverCallback();
+        })();
     }, [location, navigate]);
 
     return <div>네이버 인증 처리 중입니다...</div>;
