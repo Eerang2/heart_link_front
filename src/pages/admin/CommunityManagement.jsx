@@ -102,7 +102,7 @@ function CommunityManagement() {
           views: p.views ?? 0,
           likes: p.likes ?? 0,
           comments: p.commentsCount ?? 0,
-          imageUrl: p.imageUrl ? `http://localhost:8080${p.imageUrl}` : null,
+          imageUrl: p.imageUrl ? `${process.env.REACT_APP_API_BASE_URL}${p.imageUrl}` : null,
         }));
         setPosts(apiPosts);
       } catch (err) {

@@ -136,7 +136,7 @@ function CommunityDetail({ post, onClose }) {
         {postData.imageUrl && (
           <div className="detail-image-wrap">
             <img
-              src={`http://localhost:8080${postData.imageUrl}`}
+              src={`${process.env.REACT_APP_API_BASE_URL}${postData.imageUrl}`}
               alt="preview"
               className="detail-image"
             />

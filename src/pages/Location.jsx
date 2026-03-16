@@ -37,7 +37,7 @@ const LocationForm = () => {
     const handleSubmit = async () => {
         const fullAddress = `${city} ${district} ${detail}`;
         try {
-            const response = await axios.post('http://localhost:8080/api/member/location', {
+            const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/member/location`, {
                 address: fullAddress,
                 lat,
                 lng

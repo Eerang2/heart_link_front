@@ -32,7 +32,7 @@ function CommunityEdit() {
         setTitle(res.data.title);
         setContent(res.data.content);
         if (res.data.imageUrl) {
-          setExistingImage(`http://localhost:8080${res.data.imageUrl}`);
+          setExistingImage(`${process.env.REACT_APP_API_BASE_URL}${res.data.imageUrl}`);
         }
       } catch (err) {
         console.error("게시글 불러오기 실패:", err);

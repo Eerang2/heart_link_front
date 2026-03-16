@@ -14,7 +14,7 @@ const AdminRoutes = () => {
   useEffect(() => {
     const checkAdmin = async () => {
       try {
-        const res = await fetch("http://localhost:8080/admin/check", {
+        const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/admin/check`, {
           credentials: "include",
         });
         const data = await res.json();

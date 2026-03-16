@@ -11,7 +11,7 @@ const NoticeDetail = () => {
 
       const checkAdmin = async () => {
             try {
-                const res = await fetch("http://localhost:8080/admin/check", {
+                const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/admin/check`, {
                     credentials: "include",
                 });
                 const data = await res.json();
@@ -25,7 +25,7 @@ const NoticeDetail = () => {
   useEffect(() => {
     const fetchNotice = async () => {
       try {
-        const res = await fetch(`http://localhost:8080/notices/${id}`, {
+        const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/notices/${id}`, {
           headers: {
             "Content-Type": "application/json",
           },
